@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32519.379
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TetrCII", "TetrCII.vcxproj", "{56DE7C57-AFE5-4F9C-8B25-E0C38BA514C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56DE7C57-AFE5-4F9C-8B25-E0C38BA514C3}.Debug|x64.ActiveCfg = Debug|x64
+		{56DE7C57-AFE5-4F9C-8B25-E0C38BA514C3}.Debug|x64.Build.0 = Debug|x64
+		{56DE7C57-AFE5-4F9C-8B25-E0C38BA514C3}.Debug|x86.ActiveCfg = Debug|Win32
+		{56DE7C57-AFE5-4F9C-8B25-E0C38BA514C3}.Debug|x86.Build.0 = Debug|Win32
+		{56DE7C57-AFE5-4F9C-8B25-E0C38BA514C3}.Release|x64.ActiveCfg = Release|x64
+		{56DE7C57-AFE5-4F9C-8B25-E0C38BA514C3}.Release|x64.Build.0 = Release|x64
+		{56DE7C57-AFE5-4F9C-8B25-E0C38BA514C3}.Release|x86.ActiveCfg = Release|Win32
+		{56DE7C57-AFE5-4F9C-8B25-E0C38BA514C3}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7EBD9E9F-1EE0-4FFA-9679-19AA8D2B9289}
+	EndGlobalSection
+EndGlobal
