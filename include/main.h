@@ -11,14 +11,15 @@ using std::vector;
 
 typedef struct SCREEN_VARIABLES
 {
-	const int WIDTH = 100;
-	const int HEIGHT = 50;
+	static const int WIDTH = 100;
+	static const int HEIGHT = 50;
 	unsigned char* POINTER_FILED = nullptr;
 
 } SCREEN;
 
 typedef struct GAME_LOGIC
 {
+	static const int PI = 3.142;
 	int FIELD_WIDTH = 12;
 	int FIELD_HEIGHT = 18;
 	int CURRENT_PIECE = 0;
@@ -28,10 +29,11 @@ typedef struct GAME_LOGIC
 	int SPEED = 20;
 	int PIECE_COUNT = 0;
 	int SCORE = 0;
-	virtual bool FORCE_DOWN();
-	virtual bool ROTATE_HOLD();
+	virtual bool FORCE_DOWN(VOID);
+	virtual bool ROTATE_HOLD(VOID);
+	virtual bool GAME_END(VOID);
+	vector<int*> VECTOR_LINES;
 
 } GAME;
-
 
 #endif 
