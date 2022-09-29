@@ -5,6 +5,9 @@
 #include <iostream>
 #include <vector>
 #include <thread>
+#include <Windows.h>
+
+using std::vector;
 
 typedef struct SCREEN_VARIABLES
 {
@@ -18,10 +21,15 @@ typedef struct GAME_LOGIC
 {
 	int FIELD_WIDTH = 12;
 	int FIELD_HEIGHT = 18;
-	const int CURRENT_PIECE = 0;
-	const int CURRENT_ROTATION = 0;
-	const int CURRENT_X_POS = FIELD_WIDTH /= 2;
-	const int CURRENT_Y_POS;
+	int CURRENT_PIECE = 0;
+	int CURRENT_ROTATION = 0;
+	int CURRENT_X_POS = FIELD_WIDTH /= 2;
+	int CURRENT_Y_POS;
+	int SPEED = 20;
+	int PIECE_COUNT = 0;
+	int SCORE = 0;
+	virtual bool FORCE_DOWN();
+	virtual bool ROTATE_HOLD();
 
 } GAME;
 
