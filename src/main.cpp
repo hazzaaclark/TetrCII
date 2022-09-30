@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /* SWITCH AND CASE INTERATION THAT RETURNS AN INT VALUE */
 /* AT THE END OF IT'S EXECUTION */
 /* THIS IS AN ITERABLE LOOP THAT DETERMINES THE ROTATION OF THE PIECE */
@@ -58,6 +57,7 @@ static bool PIECE_FIT(int NTH_PIECE, int ROTATION, int POS_X_NTH, int POS_Y_NTH)
 int main()
 {
 	/* SCREEN BUFFER INIT */
+
 	wchar_t SCREEN_BUFF = SCREEN::WIDTH * SCREEN::HEIGHT;
 
 	for (int x = 0; x < SCREEN::WIDTH * SCREEN::HEIGHT; x++)
@@ -69,4 +69,17 @@ int main()
 	/* THIS JUST USES A BASIC POINTER NOTATION TO ALLOCATE MEMORY ON THE HEAP TO RENDER THE CONSOLE */
 
 	HANDLE CONSOLE = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
+	SetConsoleActiveScreenBuffer(CONSOLE);
+	DWORD BYTES_WRITTEN = 0;
+
+	/* TETROMINOE PIECE ARRANGEMENTS */
+
+	PIECE[0].append(L"..X...X...X...X.");
+	PIECE[1].append(L"..X..XX...X.....");
+	PIECE[2].append(L".....XX..XX.....");
+	PIECE[3].append(L"..X..XX..X......");
+	PIECE[4].append(L".X...XX...X.....");
+	PIECE[5].append(L".X...X...XX.....");
+	PIECE[6].append(L"..X...X..XX.....");
+
 }
