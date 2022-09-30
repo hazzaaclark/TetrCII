@@ -3,6 +3,7 @@
 #define TETIRS_MAIN_H
 
 #include <iostream>
+#include <stdio.h>
 #include <vector>
 #include <thread>
 #include <Windows.h>
@@ -38,6 +39,5 @@ typedef struct GAME_LOGIC
 	vector<int*> VECTOR_LINES;
 
 } GAME;
-
 
 #endif 
