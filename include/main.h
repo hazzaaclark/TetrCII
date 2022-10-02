@@ -16,7 +16,6 @@ typedef struct SCREEN_VARIABLES
 {
 	static const int WIDTH = 100;
 	static const int HEIGHT = 50;
-	static const char* P_FIELD;
 
 } SCREEN;
 
