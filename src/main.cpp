@@ -6,6 +6,7 @@ bool ROTATE_HOLD;
 bool GAME_END;
 
 #define GAME
+unsigned char* P_FIELD;
 static int PI = 3.142;
 static const int FI = 0;
 static const int FIELD_WIDTH = 12;
@@ -100,13 +101,13 @@ int main()
 
 	/* INTIALISE A NEW PLAYING FIELD ON EACH ITERATION OF THE GAME */
 
-	SCREEN::P_FIELD == new char[GAME::FIELD_WIDTH * GAME::FIELD_HEIGHT];
+	GAME::P_FIELD = new unsigned char[GAME::FIELD_WIDTH * GAME::FIELD_HEIGHT];
 
 	for (int x = 0; x < GAME::FIELD_WIDTH; x++)
 	{
 		for (int y = 0; y  < GAME::FIELD_HEIGHT; y++)
 		{
-			SCREEN::P_FIELD[y * GAME::FIELD_HEIGHT + x];
+			GAME::P_FIELD[y * GAME::FIELD_HEIGHT + x] = (x == 0 || x == GAME::FIELD_WIDTH - 1 || y == GAME::FIELD_HEIGHT  -1);
 		}
 	}
 
