@@ -53,11 +53,11 @@ int main()
 {
 	/* SCREEN BUFFER INIT */
 
-	wchar_t SCREEN_BUFF = SCREEN::WIDTH * SCREEN::HEIGHT;
+	wchar_t *SCREEN_BUFF = new wchar_t[SCREEN::WIDTH * SCREEN::HEIGHT];
 
 	for (int x = 0; x < SCREEN::WIDTH * SCREEN::HEIGHT; x++)
 	{
-		SCREEN_BUFF = L' ';
+		SCREEN_BUFF[x] = L' ';
 	}
 	/* BASIC CONSOLE WRITE AND READ ALGORITHM */
 	/* THIS JUST USES A BASIC POINTER NOTATION TO ALLOCATE MEMORY ON THE HEAP TO RENDER THE CONSOLE */
@@ -144,16 +144,37 @@ int main()
 					}
 				}
 
-				for (int POS_Y = 0; POS_Y  < 4; POS_Y ++)
+				for (int POS_Y = 0; POS_Y < 4; POS_Y++)
 				{
 					while (GAME::CURRENT_Y_POS + POS_Y < GAME::FIELD_WIDTH - 1)
 					{
 						bool LINE = TRUE;
 						for (int POS_X = 1; POS_X < GAME::FIELD_WIDTH - 1; POS_X++)
 						{
+							LINE &= (GAME::P_FIELD[(GAME::CURRENT_Y_POS + POS_Y) * GAME::FIELD_WIDTH + POS_X]) != 0;
+						}
 
+						if (LINE)
+						{
+							for (int POS_X = 1; POS_X < GAME::FIELD_WIDTH - 1; POS_X++)
+							{
+								GAME::P_FIELD[(GAME::CURRENT_Y_POS + POS_Y) * GAME::FIELD_WIDTH + POS_X] = 8;
+								GAME::VECTOR_LINES.push_back(GAME::CURRENT_Y_POS + POS_Y);
+							}
 						}
 					}
+				}
+			}
+
+			/* DRAW THE CHARACTERS TO THE SCREEN IN ACCORDANCE WITH THE SCREEN BUFFER */
+			/* THE SCREEN BUFFER IS A WCHAR BECAUSE I WANTED TO EXTEND BEYOND THE CAPABILITIES OF ASCII 255 */
+			/* THIS IS TO GO PAST THE NON-BREAKING SPACE TO ALLOW FOR MORE CHARACTERS ON SCREEN */
+
+			for (int x = 0; x < GAME::FIELD_WIDTH; x++)
+			{
+				for (int y = 0; y < GAME::FIELD_HEIGHT; y++)
+				{
+					SCREEN_BUFF[(y + 2) * GAME::FIELD_WIDTH + (x + 2)] = L"ABCDEFGHIJKLMNOPQRSTUVWXYZ=#"[GAME::P_FIELD[y * GAME::FIELD_WIDTH] + x];
 				}
 			}
 		}
