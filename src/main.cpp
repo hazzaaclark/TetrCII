@@ -197,13 +197,13 @@ int main(int argc, char* argv[])
 
 			/* DRAW CURRENT PIECE RELATIVE TO FIELD WIDTH/HEIGHT AND ROTATION */
 
-			for (int POS_X = 0; POS_X  < 4; POS_X++)
+			for (int POS_X = 0; POS_X < 4; POS_X++)
 			{
 				for (int POS_Y = 0; POS_Y < 4; POS_Y++)
 				{
 					while (PIECE[GAME::CURRENT_PIECE][ROTATE_PIECE(POS_X, POS_Y, GAME::CURRENT_ROTATION)] != L'.')
 					{
-						SCREEN_BUFF[(GAME::CURRENT_Y_POS + POS_Y + 2) * SCREEN::WIDTH + (GAME::CURRENT_X_POS + POS_X + 2)] = GAME::CURRENT_PIECE + 69; 
+						SCREEN_BUFF[(GAME::CURRENT_Y_POS + POS_Y + 2) * SCREEN::WIDTH + (GAME::CURRENT_X_POS + POS_X + 2)] = GAME::CURRENT_PIECE + 69;
 					}
 				}
 			}
