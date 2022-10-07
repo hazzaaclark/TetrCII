@@ -53,7 +53,7 @@ int main()
 {
 	/* SCREEN BUFFER INIT */
 
-	wchar_t *SCREEN_BUFF = new wchar_t[SCREEN::WIDTH * SCREEN::HEIGHT];
+	wchar_t* SCREEN_BUFF = new wchar_t[SCREEN::WIDTH * SCREEN::HEIGHT];
 
 	for (int x = 0; x < SCREEN::WIDTH * SCREEN::HEIGHT; x++)
 	{
@@ -81,9 +81,9 @@ int main()
 	GAME::P_FIELD = new unsigned char[GAME::FIELD_WIDTH * GAME::FIELD_HEIGHT];
 	for (int x = 0; x < GAME::FIELD_WIDTH; x++)
 	{
-		for (int y = 0; y  < GAME::FIELD_HEIGHT; y++)
+		for (int y = 0; y < GAME::FIELD_HEIGHT; y++)
 		{
-			GAME::P_FIELD[y * GAME::FIELD_HEIGHT + x] = (x == 0 || x == GAME::FIELD_WIDTH - 1 || y == GAME::FIELD_HEIGHT  -1);
+			GAME::P_FIELD[y * GAME::FIELD_HEIGHT + x] = (x == 0 || x == GAME::FIELD_WIDTH - 1 || y == GAME::FIELD_HEIGHT - 1);
 		}
 	}
 
