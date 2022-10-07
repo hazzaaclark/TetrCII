@@ -131,13 +131,27 @@ int main()
 
 			else
 			{
+				/* CHECK LINES TO SEE IF A LINE HAS BEEN COMPLETED AND NEEDS TO BE CLEARED */
+
 				for (int POS_X = 0; POS_X < 4; POS_X++)
 				{
 					for (int POS_Y = 0; POS_Y < 4; POS_Y++)
 					{
 						while (PIECE[GAME::CURRENT_PIECE][ROTATE_PIECE(POS_X, POS_Y, GAME::CURRENT_ROTATION)] != L'.')
 						{
-							GAME::P_FIELD[(GAME::CURRENT_Y_POS + POS_Y) * SCREEN::WIDTH + (GAME::CURRENT_X_POS + POS_X)] = GAME::CURRENT_PIECE + 1;
+							GAME::P_FIELD[(GAME::CURRENT_Y_POS + POS_Y) * GAME::FIELD_WIDTH + (GAME::CURRENT_X_POS + POS_X)] = GAME::CURRENT_PIECE + 1;
+						}
+					}
+				}
+
+				for (int POS_Y = 0; POS_Y  < 4; POS_Y ++)
+				{
+					while (GAME::CURRENT_Y_POS + POS_Y < GAME::FIELD_WIDTH - 1)
+					{
+						bool LINE = TRUE;
+						for (int POS_X = 1; POS_X < GAME::FIELD_WIDTH - 1; POS_X++)
+						{
+
 						}
 					}
 				}
