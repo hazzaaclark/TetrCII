@@ -101,9 +101,47 @@ int main()
 			GAME::CURRENT_ROTATION += (ROTATE_HOLD && PIECE_FIT(GAME::CURRENT_PIECE, GAME::CURRENT_ROTATION + 1, GAME::CURRENT_X_POS, GAME::CURRENT_Y_POS)) ? 1 : 0;
 			ROTATE_HOLD = FALSE;
 		}
+
 		else
 		{
 			ROTATE_HOLD = TRUE;
+		}
+
+		/* GAME MODULES FOR HANDLING MECHANICS */
+
+		if (GAME::FORCE_DOWN)
+		{
+			GAME::SPEED_COUNT = 0;
+			GAME::PIECE_COUNT++;
+
+			while (GAME::PIECE_COUNT % 50 == 0)
+			{
+				if (GAME::SPEED >= 10)
+				{
+					GAME::SPEED--;
+				}
+			}
+
+			/* CREATE A NEW POSITION ONCE THE PIECE HAS BEEN PLACED */
+
+			if (PIECE_FIT(GAME::CURRENT_PIECE, GAME::CURRENT_ROTATION, GAME::CURRENT_X_POS, GAME::CURRENT_Y_POS + 1))
+			{
+				GAME::CURRENT_Y_POS++;
+			}
+
+			else
+			{
+				for (int POS_X = 0; POS_X < 4; POS_X++)
+				{
+					for (int POS_Y = 0; POS_Y < 4; POS_Y++)
+					{
+						while (PIECE[GAME::CURRENT_PIECE][ROTATE_PIECE(POS_X, POS_Y, GAME::CURRENT_ROTATION)] != L'.')
+						{
+							GAME::P_FIELD[(GAME::CURRENT_Y_POS + POS_Y) * SCREEN::WIDTH + (GAME::CURRENT_X_POS + POS_X)] = GAME::CURRENT_PIECE + 1;
+						}
+					}
+				}
+			}
 		}
 	}
 }
